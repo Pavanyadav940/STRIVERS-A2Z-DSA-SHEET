@@ -1,0 +1,13 @@
+https://leetcode.com/problems/rotate-array/description/
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+       vector<int>temp(nums.size());
+       for(int i=0;i<nums.size();i++){
+           temp[(i+k)%nums.size()]=nums[i];
+       }
+    //    return temp;//idhar void dia ha isliye hum direct return temp nhi kar sakte ha isliye hume temp ki values nums me daalna pada;kyuki sirf nums hi return hoga;
+      nums=temp;
+     }
+};
