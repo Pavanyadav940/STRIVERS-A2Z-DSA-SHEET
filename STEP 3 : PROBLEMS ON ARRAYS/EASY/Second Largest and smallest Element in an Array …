@@ -2,6 +2,8 @@
 https://www.codingninjas.com/studio/problems/ninja-and-the-second-order-elements_6581960?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
 
 //solution:
+
+//approach 1:
 int secondlargest(int n, vector<int> a){
     int largest=a[0];
     int slargest=INT_MIN;
@@ -34,3 +36,22 @@ int secondsmallest(int n, vector<int> a){
     return ssmallest;
     }
 
+//approach 2:
+
+vector<int> getSecondOrderElements(int n, vector<int> a) {
+int slargest=secondlargest( n, a);
+int ssmallest=secondsmallest(n,a);
+return{slargest,ssmallest};
+
+
+
+    // vector<int>ans;
+    // //  sort(a.begin(), a.end());
+     
+    // //   ans.push_back(a[n-2]);
+    // //   ans.push_back(a[1]);
+     
+    
+    //  return ans; 
+
+}
