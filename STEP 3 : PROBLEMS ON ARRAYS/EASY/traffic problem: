@@ -1,0 +1,28 @@
+https://www.codingninjas.com/studio/problems/traffic_6682625?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
+solution:
+int traffic(int n, int m, vector<int> vehicle) {
+	// Write your code here.
+	int i=0,j=0,ans=INT_MIN;
+
+	while(j<n)
+	{
+		if(m!=0 && vehicle[j]==0)
+		{
+			m--;
+			j++;
+		}
+		else if(vehicle[j]==1)
+		{
+			j++;
+		}
+		else
+		{
+			if(vehicle[i]==0)
+			m++;
+
+			i++;
+		}
+		ans=max(ans,j-i);
+	}
+	return ans;
+}
