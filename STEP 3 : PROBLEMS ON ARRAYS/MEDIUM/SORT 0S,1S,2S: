@@ -1,0 +1,34 @@
+https://leetcode.com/problems/sort-colors/description/
+
+SOLUTION:
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        // sort(nums.begin(),nums.end());  ->t.c.===0(nlogn)
+       // another counting 0,1,2 the by running loop we can insert all of them
+       //another method is to flying dutch method
+       int low=0;
+       int mid=0;
+       int high=nums.size()-1;
+
+
+       while(mid<=high){
+           if(nums[mid]==0){
+               swap(nums[low],nums[mid]);
+               mid++;
+               low++;
+
+           }
+           else if ( nums[mid]==1){
+               mid++;
+
+           }
+           else{
+               swap(nums[mid],nums[high]);
+             
+               high--;
+           }
+       }
+    }
+  
+};
