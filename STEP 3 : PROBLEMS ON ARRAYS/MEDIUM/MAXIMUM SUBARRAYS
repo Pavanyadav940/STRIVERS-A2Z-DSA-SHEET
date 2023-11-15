@@ -14,6 +14,34 @@ public:
 
     //     }
     //     return maxi;
+    // 
+
+
+ ///slight changes for printing maximum subarrays
+int maxSubArray(vector<int>& nums) {
+ int start;
+int ansstart;
+int  ansend;
+        //kadana's rule//STRRIVER
+    //     int sum=0;int maxi=INT_MIN;   //maxi=nums[0];
+    //     for(int i=0;i<nums.size();i++){
+                if(sum==0){
+                    start=i;
+                     }
+    //         sum+=nums[i];
+              MAXI=MAX(MAXI,SUM);          //same
+
+
+             ansstart=start;
+             ansend=i;
+
+
+    //         if(sum<0){
+    //             sum=0;
+    //         }
+
+    //     }
+    //     return maxi;
     // }
 
      
