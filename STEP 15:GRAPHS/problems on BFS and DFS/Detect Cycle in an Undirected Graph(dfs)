@@ -1,0 +1,38 @@
+https://www.codingninjas.com/studio/problems/detect-cycle-in-an-undirected-graph-_758967?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf&leftPanelTabValue=PROBLEM
+solution:
+class Graph {
+    bool isdsf(int node,int parent,unordered_map<int,bool>&visited,vector<int>adjlist[] )
+{
+    visited[node]=true;
+    for(auto neighbours :adjlist[node]){
+        if(!visited[neighbours]){
+            bool cycledetected=isdsf(neighbours,node,visited, adjlist);
+            if(cycledetected){
+                return true;
+            }
+             
+
+        }
+         else if (visited[neighbours] == true && neighbours != parent) {
+               return true;
+             }
+    }
+    return false;
+}
+
+public:
+    bool detectCycle(int V, vector<int> adj[]) {
+         unordered_map<int,bool>visited;
+          for(int i=0;i<V;i++){
+             if(!visited[i]){
+          
+              bool ans=isdsf(i,-1,visited,adj);
+             if(ans==true){
+                 return true;
+             }
+         }
+       
+     } 
+      return false;
+    }
+};
