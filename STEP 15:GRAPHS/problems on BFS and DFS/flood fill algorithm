@@ -1,0 +1,80 @@
+https://leetcode.com/problems/flood-fill/description/
+solution:
+//by bfs
+class Solution {
+    void bfs(int sr,int sc,int color, vector<vector<int>>&ans,int n,int m, vector<vector<int>>&vis,vector<vector<int>>&image){
+        int initialcolor=image[sr][sc];
+        queue<pair<int,int>>q;
+        q.push({sr,sc});
+
+        ans[sr][sc]=color;
+        vis[sr][sc]=1;
+        while(!q.empty()){
+                  auto p=q.front();
+                   q.pop();
+                 int first=p.first;
+                  int second=p.second;
+                int nrow[]={-1,0,1,0};
+                int ncol[]={0,1,0,-1};
+
+                for(int i=0;i<4;i++){
+        
+                      int row=first+nrow[i];
+                      int col=second+ncol[i];  
+
+                      if(row>=0 && row<n && col>=0&& col<m &&
+                         image[row][col]==initialcolor&&vis[row][col]!=1){
+                             q.push({row,col});
+                             vis[row][col]=1;
+                             ans[row][col]=color;
+                         }
+                    
+                }
+
+
+
+        }
+
+       
+    }
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+          int n=image.size();
+          int m =image[0].size();
+         vector<vector<int>>vis(n,vector<int> (m,0));
+          vector<vector<int>>ans=image;
+          
+         bfs(sr,sc,color,ans,n,m,vis,image);
+         return ans;
+
+    }
+};
+
+
+//by dfs;;;;
+//class Solution {
+// public:
+//     void dfs(int row,int col,int initialcolor,int newcolor,int deltarow[],int deltacol[],
+//                 vector<vector<int>>& ans,vector<vector<int>>& image){
+//         int n=image.size();
+//         int m=image[0].size();
+//         ans[row][col]=newcolor;
+//         //check for the 4 neighbours
+//         for(int i=0;i<4;i++){
+//             int nrow=row+deltarow[i];
+//             int ncol=col+deltacol[i];
+//             if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && 
+//                 image[nrow][ncol]==initialcolor && ans[nrow][ncol]!=newcolor){
+//                     dfs(nrow,ncol,initialcolor,newcolor,deltarow,deltacol,ans,image);
+//             }
+//         }
+//     }
+//     vector<vector<int>> floodFill(vector<vector<int>>& image,int sr,int sc,int color){
+//         int initialcolor=image[sr][sc];
+//         vector<vector<int>>& ans=image;
+//         int deltarow[]={-1,0,1,0};
+//         int deltacol[]={0,1,0,-1};
+//         dfs(sr,sc,initialcolor,color,deltarow,deltacol,ans,image);
+//         return ans;
+//     }
+// };
