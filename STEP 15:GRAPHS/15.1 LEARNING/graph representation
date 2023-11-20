@@ -1,0 +1,78 @@
+learn from this article:
+https://takeuforward.org/graph/graph-representation-in-c/
+
+
+graph representation can be done by two way:
+(1) adjacency matrix
+
+// #include<iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int n, m;
+//     cin >> n >> m;
+//     // adjacency matrix for undirected graph
+//     // time complexity: O(n)
+//     int adj[n+1][n+1];
+//     for(int i = 0; i < m; i++)
+//     {
+//         int u, v;
+//         cin >> u >> v;
+//         adj[u][v] = 1;
+//         adj[v][u] = 1 ; // this statement will be removed in case of directed graph
+//     }
+//     return 0;
+// }
+(2) adjacency list
+// by adjencency list
+#include<iostream>
+#include<unordered_map>
+#include<list>
+// for making graph generic use template <typename T>
+using namespace std;
+class graph{
+    public:
+    unordered_map<int,list<int>>adj;
+    
+    void addedges(int u,int v,bool direction){
+         adj[u].push_back(v);
+          //0 for undiracted graph and 1 for directed
+         if(direction==0){
+            adj[v].push_back(u);
+         }
+
+    }
+
+    void printlist(){
+      for(auto i:adj){
+        cout<<i.first<<"->";
+        for(auto j:i.second){
+            cout<<j<<",";
+        }
+        cout<<endl;
+      }
+    }
+};
+int main(){
+     graph g;
+    cout<<"Enter no of nodes "<<endl;
+    int n;
+    cin>>n;
+
+    cout<<"Enter no of edged"<<endl;
+    int m;
+    cin>>m;
+   
+   for(int i=0;i<m;i++){
+    int u,v;
+    cin>>u>>v;
+    //creating undirected graph
+    g.addedges(u,v,0);
+   }
+   g.printlist();
+   return 0;
+
+ 
+}
+
