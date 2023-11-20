@@ -11,7 +11,7 @@ solution:
 #include <set>
 
 vector<int> bfsTraversal(int n, vector<vector<int>> &adj){
-// unordered_map<int,set<int>>adjlist;
+
   queue<int>q;
   vector<int>ans;
   unordered_map<int,bool>visited;
