@@ -1,0 +1,40 @@
+learn from below link:
+https://takeuforward.org/graph/breadth-first-search-bfs-level-order-traversal/
+
+question:
+https://www.codingninjas.com/studio/problems/bfs-in-graph_973002?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf;
+solution:
+#include <bits/stdc++.h> 
+#include <vector>
+#include <unordered_map>
+#include <queue>
+#include <set>
+
+vector<int> bfsTraversal(int n, vector<vector<int>> &adj){
+// unordered_map<int,set<int>>adjlist;
+  queue<int>q;
+  vector<int>ans;
+  unordered_map<int,bool>visited;
+
+  q.push(0);
+  visited[0]=1;
+   
+   while(!q.empty()){
+       int frontnode=q.front();
+       q.pop();
+
+    //store frontnode into ans
+       ans.push_back(frontnode);
+    //traverse all neighbours of frontnode 
+    
+
+    for(auto i:adj[frontnode]){
+        if(!visited[i]){
+            q.push(i);
+            visited[i]=1;
+        }
+    }
+
+}
+return ans;
+}
