@@ -1,0 +1,49 @@
+https://www.codingninjas.com/studio/problems/ceiling-in-a-sorted-array_1825401?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
+solution:
+int la(vector<int>&arr, int n, int x) {
+	int s=0;
+    int e=n-1;
+    int ans=-1;
+  while(s<=e){
+
+        int mid=s+(e-s)/2;
+		if(arr[mid]==x){
+			return x;
+		}
+        if(arr[mid]>=x){
+            ans=arr[mid];
+            e=mid-1;
+
+        } else {
+            s = mid + 1;
+        }
+  }
+  return ans;
+}
+int ba(vector<int> &arr, int n, int x) {
+	int s=0;
+    int e=n-1;
+    int ans=-1;
+  while(s<=e){
+
+        int mid=s+(e-s)/2;
+		if(arr[mid]==x){
+			return x;
+		}
+        if(arr[mid]<=x){
+            ans=arr[mid];
+             s=mid+1;
+
+        } else {
+             e = mid - 1;
+        }
+  }
+  return ans;
+}
+
+pair<int, int> getFloorAndCeil(vector<int>& arr, int n, int x) {
+	//  sort(arr,arr+n);
+	int lla= la(arr,n,x);
+	int bba= ba(arr,n,x);
+    return  {bba,lla};
+
