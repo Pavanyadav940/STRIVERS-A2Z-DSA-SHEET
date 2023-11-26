@@ -1,0 +1,26 @@
+https://www.codingninjas.com/studio/problems/lower-bound_8165382?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
+solution:
+int lowerBound(vector<int> arr, int n, int x) {
+	// int s=0;
+    // int e=n-1;
+    // int ans=n;
+    
+
+
+    return lowerBound(arr.begin(),arr.end(),x)-arr.begin();
+    
+    // while(s<=e){
+    //     int mid=s+(e-s)/2;
+    //     if(arr[mid]>=x){
+    //         ans=mid;
+    //         e=mid-1;
+
+    //     }
+    //     else{
+    //         s=mid+1;
+    //     }
+        
+        
+    // }
+    // return ans;
+}
