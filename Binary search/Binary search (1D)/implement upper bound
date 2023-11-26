@@ -1,0 +1,31 @@
+https://www.codingninjas.com/studio/problems/implement-upper-bound_8165383?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
+solution:
+
+#include <bits/stdc++.h>
+int upperBound(vector<int> &arr, int x, int n){
+
+
+	int s=0;
+    int e=n-1;
+    int ans=n;
+    
+
+
+    // return upper_bound(arr.begin(),arr.end(),x)-arr.begin();
+    
+    while(s<=e){
+        int mid=s+(e-s)/2;
+        if(arr[mid]>x){
+            ans=mid;
+            e=mid-1;
+
+        }
+        else{
+            s=mid+1;
+        }
+        
+        
+    }
+    return ans;
+
+}
