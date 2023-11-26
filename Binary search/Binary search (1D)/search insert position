@@ -1,0 +1,30 @@
+https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/
+class Solution {
+public:
+    int binarySearch(vector <int> &arr , int target)
+    {
+         int s=0;
+         int e=arr.size()-1;
+         int ans=arr.size();
+         while(s<=e){
+             int mid=s+(e-s)/2;
+             if(arr[mid]==target){
+                 return mid;
+             }
+            else if(arr[mid]>=target){
+                 ans=mid;
+                 e=mid-1;
+             }
+             else{
+                 s=mid+1;
+             }
+
+         }
+         return ans;
+
+    }
+    int searchInsert(vector<int>& arr, int target)
+    {
+        return binarySearch(arr , target);
+    }
+};
