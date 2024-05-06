@@ -1,0 +1,19 @@
+https://leetcode.com/problems/isomorphic-strings/description/
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+       int arr[256]={0};
+       int arr2[256]={0};
+       for(int i=0;i<s.size();i++){
+        if(arr[s[i]]==0 && arr2[t[i]]==0){
+            arr[s[i]]=t[i];
+            arr2[t[i]]=s[i];
+        }
+        else if(arr[s[i]]!=t[i]){
+            return false;
+        }
+
+       }
+       return true;
+    }
+};
