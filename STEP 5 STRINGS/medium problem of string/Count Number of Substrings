@@ -1,0 +1,40 @@
+https://www.geeksforgeeks.org/problems/count-number-of-substrings4528/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=count-number-of-substrings
+solution:
+//User function template for C++
+
+class Solution
+{
+    
+    private:
+    long long int findsub(string s,int k){
+        int l=0,r=0,dc=0,ds=0;
+        int n=s.size();
+        int arr[26]={0};
+        while(r<n){
+              char ch =s[r];
+              arr[ch-'a']++;
+              
+              if(arr[ch-'a']==1){
+                  dc++;
+              }
+            while(dc>k){
+                char chh=s[l];
+                arr[chh-'a']--;
+                
+                if(arr[chh-'a']==0){
+                    dc--;
+                }
+                l++;
+            }
+            ds+=(r-l+1);
+            r++;
+             
+        }
+        return ds;
+    }
+  public:
+    long long int substrCount (string s, int k) {
+       long long int sub = findsub(s,k)-findsub(s,k-1);
+       return sub;
+    }
+};
